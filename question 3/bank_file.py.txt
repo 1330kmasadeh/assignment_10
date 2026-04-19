@@ -1,0 +1,15 @@
+import pickle
+from bank import Bank
+
+class BankFile(Bank):
+    def __init__(self):
+        super().__init__()
+        try:
+            with open("bank_data.dat", "rb") as f:
+                self.accounts = pickle.load(f)
+        except:
+            print("No file found")
+
+    def save(self):
+        with open("bank_data.dat", "wb") as f:
+            pickle.dump(self.accounts, f)

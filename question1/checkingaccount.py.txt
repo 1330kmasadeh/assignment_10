@@ -1,0 +1,29 @@
+class CheckingAccount:
+    def __init__(self, name, pin, balance=0.0):
+        self.__name = name
+        self.__pin = pin
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Deposited", amount)
+
+    def withdraw(self, amount):
+        if amount > self.__balance:
+            return "Insufficient funds"
+        self.__balance -= amount
+
+    def __str__(self):
+        return f"Checking Account: {self.__name}, Balance: {self.__balance}"
+
+
+def main():
+    acc = CheckingAccount("Khaled", "1234", 500)
+    print(acc)
+    acc.deposit(100)
+    acc.withdraw(50)
+    print(acc)
+
+if __name__ == "__main__":
+    main()

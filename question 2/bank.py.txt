@@ -1,0 +1,16 @@
+class Bank:
+    def __init__(self):
+        self.accounts = {}
+
+    def add_account(self, acc):
+        key = acc._name + acc._pin + acc.__class__.__name__
+        self.accounts[key] = acc
+
+    def computeInterest(self):
+        for acc in self.accounts.values():
+            if acc.__class__.__name__ == "SavingsAccount":
+                acc.compute_interest()
+
+    def display(self):
+        for acc in self.accounts.values():
+            print(acc)

@@ -1,0 +1,5 @@
+from bankaccount import BankAccount
+
+class CheckingAccount(BankAccount):
+    def __str__(self):
+        return f"Checking: {self._name}, Balance: {self._balance}"
